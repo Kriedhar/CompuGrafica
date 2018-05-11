@@ -316,7 +316,7 @@ if __name__ == '__main__':
             if t.rect.y+t.rect.height >= 460:
                 t.rect.y = 460-t.rect.height
 
-        #daños
+        #danios
 
         for u in usuarios:
             danio = pygame.sprite.spritecollide(u,enemigos,False)
