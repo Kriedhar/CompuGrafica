@@ -77,7 +77,7 @@ if __name__ == '__main__':
     reloj = pygame.time.Clock()
     fuente = pygame.font.Font(None, 50)
     cielo = pygame.image.load("Cielo.jpg")
-    
+
 
     #grupos
     fondo = Fondo()
@@ -124,12 +124,16 @@ if __name__ == '__main__':
     vidas.add(hp2)
 
     #VARIABLES
+    canciones = ['musicamenu.mp3', 'MentiraV2.wav', 'BounceTrap.wav']
     vel = 3
     sonido = True
     fin = False
     menu = True
     while not fin:
 
+        if menu == True and sonido == True:
+            pygame.mixer.music.load(canciones[0])
+            pygame.mixer.music.play(-1)
         #menu
 
         while menu:
@@ -204,8 +208,10 @@ if __name__ == '__main__':
                         fin = True
                         menu = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    if pos[0] > 368 and pos[0] < 487 and pos[1] > 350 and pos[1] < 380:
+                    if pos[0] > 368 and pos[0] < 487 and pos[1] > 350 and pos[1] < 380 and sonido==True:
                         menu = False
+                        pygame.mixer.music.load(canciones[1])
+                        pygame.mixer.music.play(-1)
                     if pos[0] > 363 and pos[0] < 500 and pos[1] > 380 and pos[1] < 410:
                         if sonido:
                             sonido = False
